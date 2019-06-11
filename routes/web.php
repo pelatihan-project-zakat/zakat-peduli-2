@@ -15,8 +15,6 @@ Route::prefix('admin')->group(function(){
         return view('admin.index');
     })->name('admin.index');
 
-    Route::resource('category', 'Admin\DonationcategoryController');
-
     Route::resource('program', 'Admin\DonationprogramController');
 
     Route::resource('mustahiq', 'Admin\MustahiqController');
