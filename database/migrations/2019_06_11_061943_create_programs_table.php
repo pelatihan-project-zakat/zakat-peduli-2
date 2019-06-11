@@ -15,13 +15,13 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('mustahig_id');
+            $table->unsignedBigInteger('mustahiq_id');
             $table->string('nama_program');
             $table->string('jenis_amalan');
             $table->string('keterangan');
             $table->timestamps();
 
-            $table->foreign('mustahig_id')->references('id')->on('mustahigs');
+            $table->foreign('mustahiq_id')->references('id')->on('mustahiqs');
         });
     }
 

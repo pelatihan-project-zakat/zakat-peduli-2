@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMustahigsTable extends Migration
+class CreateMustahiqsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,6 +28,6 @@ class CreateMustahigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mustahigs');
+        Schema::dropIfExists('mustahiqs');
     }
 }
