@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('no_telpon');
+            $table->string('alamat');
+            $table->string('jml_transaksi');
+            $table->string('total_donasi');
             $table->rememberToken();
             $table->timestamps();
         });
