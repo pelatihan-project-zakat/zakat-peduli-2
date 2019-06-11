@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransactionsTable extends Migration
+class CreateProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('tanggal');
-            $table->string('email');
-            $table->string('program');
-            $table->decimal('jumlah_donasi');
-            $table->integer('status');
+            $table->unsignedBigInteger('mustahig_id');
+            $table->string('nama_program');
+            $table->string('jenis_amalan');
+            $table->string('keterangan');
             $table->timestamps();
+
+            $table->foreign('mustahig_id')->references('id')->on('mustahigs');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('programs');
     }
 }
