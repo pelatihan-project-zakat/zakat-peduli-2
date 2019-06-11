@@ -13,10 +13,10 @@ class CreateMustahigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mustahigs', function (Blueprint $table) {
+        Schema::create('mustahiqs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_mustahig');
-            $table->string('alamat_mustahig');
+            $table->string('nama_mustahiq');
+            $table->string('alamat_mustahiq');
             $table->timestamps();
         });
     }
