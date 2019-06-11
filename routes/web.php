@@ -15,7 +15,7 @@ Route::prefix('admin')->group(function(){
         return view('admin.index');
     })->name('admin.index');
 
-    Route::resource('program', 'Admin\DonationprogramController');
+    Route::resource('program', 'Admin\ProgramController');
 
     Route::resource('mustahiq', 'Admin\MustahiqController');
 
@@ -24,5 +24,5 @@ Route::prefix('admin')->group(function(){
         return view('admin.transaction.success');
     })->name('transaction.success');
 
-    Route::get('/donor', 'Admin\DonorController@index')->name('donor.index');
+    Route::get('/user', 'Admin\UserController@index')->name('user.index');
 });

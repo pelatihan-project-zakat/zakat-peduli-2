@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProgramsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
@@ -25,11 +21,6 @@ class CreateProgramsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('programs');

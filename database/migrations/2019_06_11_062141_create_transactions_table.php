@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTransactionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
@@ -18,13 +14,13 @@ class CreateTransactionsTable extends Migration
             $table->string('kode_transaksi');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('program_id');
+            $table->unsignedBigInteger('bank_id');
             $table->string('atas_nama');
             $table->string('nominal');
             $table->string('bukti_tf');
             $table->string('status');
             $table->string('tgl_bayar');
-            $table->string('metode_bayar');
-            $table->unsignedBigInteger('bank_id');
+            $table->string('metode_bayar');            
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
@@ -33,11 +29,6 @@ class CreateTransactionsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('transactions');
