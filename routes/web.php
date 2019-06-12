@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/default', function () {
+    return view('templates.default');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -9,9 +13,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::prefix('admin')->middleware('auth')->group(function(){
-    Route::get('/dashboard', function ()
-    {
+Route::prefix('admin')->middleware('auth', 'role:Admin')->group(function () {
+    Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.index');
 
@@ -20,9 +23,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::resource('mustahiq', 'Admin\MustahiqController');
 
     Route::resource('transaction', 'Admin\TransactionController');
-    Route::get('/transaction/success', function(){
+
+    Route::get('/transaction/success', function () {
         return view('admin.transaction.success');
     })->name('transaction.success');
 
-    Route::get('/user', 'Admin\UserController@index')->name('user.index');
+    // Route::get('/user', 'Admin\UserController@index')->name('user.index');
 });

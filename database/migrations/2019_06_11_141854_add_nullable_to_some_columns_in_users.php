@@ -14,6 +14,7 @@ class AddNullableToSomeColumnsInUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('status')->nullable()->change();
             $table->string('no_telpon')->nullable()->change();
             $table->string('alamat')->nullable()->change();
             $table->string('jml_transaksi')->nullable()->change();
@@ -29,6 +30,7 @@ class AddNullableToSomeColumnsInUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('status')->nullable($value = false)->change();
             $table->string('no_telpon')->nullable($value = false)->change();
             $table->string('alamat')->nullable($value = false)->change();
             $table->string('jml_transaksi')->nullable($value = false)->change();
