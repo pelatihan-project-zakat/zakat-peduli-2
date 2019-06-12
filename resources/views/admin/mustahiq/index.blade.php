@@ -22,8 +22,8 @@
                 @foreach ($mustahiqs as $mustahiq)
                     <tr>
                         <td>{{$mustahiq->id}}</td>
-                        <td>{{$mustahiq->mustahiq_name}}</td>
-                        <td>{{$mustahiq->mustahiq_address}}</td>
+                        <td>{{$mustahiq->nama_mustahiq}}</td>
+                        <td>{{$mustahiq->alamat_mustahiq}}</td>
                         <td>
                             <a class="btn btn-info" href="{{route('mustahiq.edit', $mustahiq)}}">Edit</a>
                         </td>
