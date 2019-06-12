@@ -26,3 +26,15 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::get('/user', 'Admin\UserController@index')->name('user.index');
 });
+
+Route::get('/donasi', 'TransactionController@index')->name('trancastion.index');
+
+Route::get('/donasi', 'TransactionController@create')->name('transaction.create');
+
+Route::post('/donasi', 'TransactionController@store')->name('transaction.store');
+
+Route::get('/validation', 'TransactionController@index');
+
+Route::get('/upload/{upload}/edit', 'TransactionController@edit')->name('transaction.edit');
+
+Route::put('/upload', 'TransactionController@update')->name('transaction.update');
