@@ -21,20 +21,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($donors as $donor)
+                @foreach ($users as $user)
                     <tr>
-                        <td>{{$donor->id}}</td>
-                        <td>{{$donor->name}}</td>
-                        <td>{{$donor->email}}</td>
-                        <td>{{$donor->phone}}</td>
-                        <td>{{$donor->address}}</td>
-                        <td>{{$donor->transaction_number}}</td>
-                        <td>Rp {{$donor->total_donation}}</td>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->no_telpon}}</td>
+                        <td>{{$user->alamat}}</td>
+                        <td>{{$user->jml_transaksi}}</td>
+                        <td>Rp {{$user->total_donasi}}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            {{$donors->links()}}
+            {{$users->links()}}
         </div>
     </div>
     <!-- END TABLE HOVER -->

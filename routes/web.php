@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/default', function () {
+    return view('templates.default');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -8,9 +12,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function(){
-    Route::get('/dashboard', function ()
-    {
+
+Route::prefix('admin')->middleware('auth', 'role:Admin')->group(function () {
+    Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.index');
 
@@ -20,16 +24,17 @@ Route::prefix('admin')->group(function(){
 
     Route::resource('bank', 'Admin\BankController');
 
+    Route::get('/user', 'Admin\UserController@index')->name('user.index');
+
     Route::resource('transaction', 'Admin\TransactionController');
-    Route::get('/transaction/success', function(){
+
+    Route::get('/transaction/success', function () {
         return view('admin.transaction.success');
     })->name('transaction.success');
-    Route::get('/transaction/failed', function(){
-        return view('admin.transaction.success');
-    })->name('transaction.failed');
 
-    Route::get('/user', 'Admin\UserController@index')->name('user.index');
 });
+
+Route::get('/user', 'Admin\UserController@index')->name('user.index');
 
 Route::get('/donasi', 'TransactionController@index')->name('trancastion.index');
 
@@ -43,6 +48,3 @@ Route::get('/upload/{upload}/edit', 'TransactionController@edit')->name('transac
 
 Route::put('/upload', 'TransactionController@update')->name('transaction.update');
 
-Route::get('/rekening', function () {
-    return view('users.rekening');
-});
