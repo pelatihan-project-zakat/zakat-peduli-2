@@ -36,48 +36,11 @@
                         <h3 class="panel-title">Metode Pembayaran</h3>
                     </div>
                     <div class="panel-body">
-                        <div class="tab-content">
-                            <div id="banktransfer" class="tab-pane fade in active">                                        
-                                <div class="radio radio-metode-donasi">
-                                    <label>
-                                        <input type="radio" class="PaymentId" name="PaymentId" value="1" checked="checked" data-jenis-pembayaran="banktransfer">
-                                        <img src="{{ asset('assets/img/logo-bca.png') }}"> 
-                                    </label>
-                                </div>                
-                                <div class="radio radio-metode-donasi">
-                                    <label>
-                                        <input type="radio" class="PaymentId" name="PaymentId" value="2"  data-jenis-pembayaran="banktransfer">
-                                        <img src="{{ asset('assets/img/logo-muamalat.png') }}"> 
-                                    </label>
-                                </div>   
-                                <div class="radio radio-metode-donasi">
-                                    <label>
-                                        <input type="radio" class="PaymentId" name="PaymentId" value="3"  data-jenis-pembayaran="banktransfer">
-                                        <img src="{{ asset('assets/img/logo-bni.png') }}"> 
-                                    </label>
-                                </div>         
-                            </div>
-                            <div id="online" class="tab-pane fade">                                              
-                                <div class="radio radio-metode-donasi">
-                                    <label>
-                                        <input type="radio" class="PaymentId" name="PaymentId" value="4"  data-jenis-pembayaran="online">
-                                        <img src="{{ asset('assets/img/logo-cimb-clicks.png') }}"> 
-                                    </label>
-                                </div>                                           
-                                <div class="radio radio-metode-donasi">
-                                        <label>
-                                            <input type="radio" class="PaymentId" name="PaymentId" value="5"  data-jenis-pembayaran="online">
-                                        <img src="{{ asset('assets/img/logo-ib-muamalat.png') }}"> 
-                                    </label>
-                                </div>                                                
-                                <div class="radio radio-metode-donasi">
-                                    <label>
-                                        <input type="radio" class="PaymentId" name="PaymentId" value="6"  data-jenis-pembayaran="online">
-                                        <img src="{{ asset('assets/img/logo-visa-master-card.png') }}">
-                                    </label>
-                                </div>
-                            </div>
-                        </div>                                          
+                        <label>                            
+                            @foreach ($banks as $bank)
+                        <input type="radio" class="" name="bank" value="{{ $bank->id }}"><img src="bank/{{ $bank->logo }}"></img>             
+                            @endforeach
+                        </label>                       
                     </div>
                     <div class="panel-footer">
                         <input type="submit" class="btn btn-block btn-lg btn-warning" value="Donasi Sekarang">

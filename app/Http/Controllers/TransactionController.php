@@ -49,15 +49,12 @@ class TransactionController extends Controller
         
         $transaction = new Transaction;
         
-        $transaction->user_id = auth()->id(); 
+        $transaction->user_id = auth()->id();    
         $transaction->program_id = $request->program;     
         $transaction->bank_id = $request->bank;
         $transaction->atas_nama = $request->atas_nama;
         $transaction->nominal = $request->nominal;      
         $transaction->bukti_tf = $imagePath;
-        $transaction->status = $request->status;
-        $transaction->tgl_bayar = $request->tgl_bayar;
-        $transaction->metode_bayar = $request->metode_bayar;
         $transaction->save();
     }
 

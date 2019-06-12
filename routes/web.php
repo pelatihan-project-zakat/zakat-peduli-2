@@ -42,3 +42,7 @@ Route::get('/validation', 'TransactionController@index');
 Route::get('/upload/{upload}/edit', 'TransactionController@edit')->name('transaction.edit');
 
 Route::put('/upload', 'TransactionController@update')->name('transaction.update');
+
+Route::get('/rekening', function () {
+    return view('users.rekening');
+});
