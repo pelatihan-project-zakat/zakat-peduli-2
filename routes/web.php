@@ -18,6 +18,8 @@ Route::prefix('admin')->group(function(){
 
     Route::resource('mustahiq', 'Admin\MustahiqController');
 
+    Route::resource('bank', 'Admin\BankController');
+
     Route::resource('transaction', 'Admin\TransactionController');
     Route::get('/transaction/success', function(){
         return view('admin.transaction.success');

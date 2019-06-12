@@ -4,82 +4,73 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Bank;
+use Illuminate\Support\Facades\Storage;
 
 class BankController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $banks = Bank::latest()->paginate(10);
+
+        return view('admin.bank.index', [
+            'banks'=>$banks]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.bank.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $bank = new Bank();
+
+        $bank->nama_bank = $request->nama_bank;
+        $bank->no_rek = $request->no_rek;
+
+        $imagePath = $request->file('image')->store('bank');
+        $bank->logo = $imagePath;
+        
+        $bank->save();
+
+        return redirect()->route('bank.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Bank $bank)
     {
-        //
+        return view('admin.bank.edit',[
+            'bank' => $bank,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bank $bank)
     {
-        //
+        $bank->nama_bank = $request->nama_bank;
+        $bank->no_rek = $request->no_rek;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('bank');
+            // Untuk Menghapus gambar lama
+            Storage::delete($bank->logo);
+            $bank->logo = $imagePath;
+        }
+        
+        $bank->save();
+
+        return redirect()->route('bank.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Bank $bank)
     {
-        //
+        $bank->delete();
+        Storage::delete($bank->logo);
+
+        return redirect()->route('bank.index');
     }
 }
