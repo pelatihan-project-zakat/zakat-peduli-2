@@ -27,7 +27,7 @@ Route::prefix('admin')->group(function(){
         return view('admin.transaction.success');
     })->name('transaction.success');
     Route::get('/transaction/failed', function(){
-        return view('admin.transaction.success');
+        return view('admin.transaction.failde');
     })->name('transaction.failed');    
 });
 
