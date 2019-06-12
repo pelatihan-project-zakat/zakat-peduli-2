@@ -20,15 +20,15 @@ Route::prefix('admin')->group(function(){
 
     Route::resource('bank', 'Admin\BankController');
 
+    Route::get('/user', 'Admin\UserController@index')->name('user.index');
+
     Route::resource('transaction', 'Admin\TransactionController');
     Route::get('/transaction/success', function(){
         return view('admin.transaction.success');
     })->name('transaction.success');
     Route::get('/transaction/failed', function(){
         return view('admin.transaction.success');
-    })->name('transaction.failed');
-
-    Route::get('/user', 'Admin\UserController@index')->name('user.index');
+    })->name('transaction.failed');    
 });
 
 Route::get('/donasi', 'TransactionController@index')->name('trancastion.index');
