@@ -10,11 +10,11 @@
             <form action="{{route('mustahiq.store')}}" method="POST">
                 @csrf
                 <label for="name">Nama Mustahiq</label>
-                <input type="text" class="form-control" placeholder="Nama Mustahiq" name="name">
+                <input type="text" class="form-control" placeholder="Nama Mustahiq" name="nama_mustahiq">
                 <br>
 
                 <label for="address">Alamat Instansi</label>
-                <textarea class="form-control" placeholder="Alamat Instansi" rows="4" name="address"></textarea>
+                <textarea class="form-control" placeholder="Alamat Instansi" rows="4" name="alamat_mustahiq"></textarea>
                 <br>
 
                 <button type="submit" class="btn btn-success">Tambah Data</button>

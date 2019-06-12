@@ -5,34 +5,32 @@
     <!-- TABLE HOVER -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">Program Yayasan Al-Azhar Peduli</h3>            
+            <h3 class="panel-title">Daftar Bank yang Bisa Dipakai untuk Membayar Donasi</h3>
         </div>
         <div class="panel-body">
-            <a href="{{route('program.create')}}" class="btn btn-success">Tambah program baru</a>
+            <a href="{{route('bank.create')}}" class="btn btn-success">Tambah Data Bank</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama Program</th>
-                        <th>Mustahiq</th>
-                        <th>Jenis Amalan</th>
-                        <th>Keterangan</th>
+                        <th>Nama Bank</th>
+                        <th>No. Rekening</th>
+                        <th>Logo Bank</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($programs as $program)
+                @foreach ($banks as $bank)
                     <tr>
-                        <td>{{$program->id}}</td>
-                        <td>{{$program->nama_program}}</td>
-                        <td>{{$program->mustahiq->nama_mustahiq}}</td>
-                        <td>{{$program->jenis_amalan}}</td>
-                        <td>{{$program->keterangan}}</td>
+                        <td>{{$bank->id}}</td>
+                        <td>{{$bank->nama_bank}}</td>
+                        <td>{{$bank->no_rek}}</td>
+                        <td><img src="{{ asset($bank->logo) }}" alt="" height="100px"></td>
                         <td>
-                            <a class="btn btn-info" href="{{route('program.edit', $program)}}">Edit</a>
+                            <a class="btn btn-info" href="{{route('bank.edit', $bank)}}">Edit</a>
                         </td>
                         <td>
-                            <form action="{{route('program.destroy', $program)}}" method="POST">
+                            <form action="{{route('bank.destroy', $bank)}}" method="POST">
                                 @method("DELETE")
                                 @csrf
                                 <input type="submit" class="btn btn-danger" value="Hapus">
@@ -42,7 +40,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{$programs->links()}}
+            {{$banks->links()}}
         </div>
     </div>
     <!-- END TABLE HOVER -->

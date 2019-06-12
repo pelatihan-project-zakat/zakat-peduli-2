@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
-    public function transactions()
+    public function transaction()
     {
         return $this->hasMany(Transaction::class);
     }
 
-    public function mustahiqs()
+    public function mustahiq()
     {
         return $this->belongsTo(Mustahiq::class);
     }

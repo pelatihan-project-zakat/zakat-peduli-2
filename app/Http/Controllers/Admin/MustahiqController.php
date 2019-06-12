@@ -25,11 +25,11 @@ class MustahiqController extends Controller
     {
         $mustahiq = new Mustahiq();
 
-        $mustahiq->mustahiq_name = $request->name;
-        $mustahiq->mustahiq_address = $request->address;
+        $mustahiq->nama_mustahiq = $request->nama_mustahiq;
+        $mustahiq->alamat_mustahiq = $request->alamat_mustahiq;
         $mustahiq->save();
 
-        return redirect()->route('mustahiq.index');        
+        return redirect()->route('mustahiq.index');
     }
 
     public function show($id)
@@ -46,8 +46,8 @@ class MustahiqController extends Controller
 
     public function update(Request $request, Mustahiq $mustahiq)
     {
-        $mustahiq->mustahiq_name = $request->name;
-        $mustahiq->mustahiq_address = $request->address;
+        $mustahiq->nama_mustahiq = $request->nama_mustahiq;
+        $mustahiq->alamat_mustahiq = $request->alamat_mustahiq;
         $mustahiq->save();
 
         return redirect()->route('mustahiq.index');

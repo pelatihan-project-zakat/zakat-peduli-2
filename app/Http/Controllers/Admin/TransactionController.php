@@ -12,7 +12,7 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = DB::table('transactions')->where('status', '=', 0)->latest()->paginate(10);
+        $transactions = DB::table('transactions')->where('status', '=', 4)->latest()->paginate(10);
 
         return view('admin.transaction.index', [
             'transactions'=>$transactions]);

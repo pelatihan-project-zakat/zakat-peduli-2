@@ -17,8 +17,8 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('bank_id');
             $table->string('atas_nama');
             $table->string('nominal');
-            $table->string('bukti_tf');
-            $table->string('status');
+            $table->string('bukti_tf')->nullable()->default(null);
+            $table->enum('status', ['1', '2', '3', '4'])->default('1');
             $table->string('tgl_bayar');
             $table->string('metode_bayar');            
             $table->timestamps();
