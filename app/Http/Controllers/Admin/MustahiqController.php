@@ -29,7 +29,7 @@ class MustahiqController extends Controller
         $mustahiq->mustahiq_address = $request->address;
         $mustahiq->save();
 
-        return redirect()->route('mustahiq.index');        
+        return redirect()->route('mustahiq.index');
     }
 
     public function show($id)

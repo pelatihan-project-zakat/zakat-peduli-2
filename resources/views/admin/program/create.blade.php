@@ -9,16 +9,25 @@
         <div class="panel-body">
             <form action="{{route('program.store')}}" method="POST">
                 @csrf
+                
                 <label for="nama_program">Nama Program</label>
                 <input type="text" class="form-control" placeholder="Nama Program" name="nama_program">
                 <br>
+
+                <label for="jenis_donasi">Penerima Donasi (Mustahiq)</label>
+                <select class="form-control" name="mustahiq">
+                    @foreach ($mustahiqs as $mustahiq)
+                        <option value="{{$mustahiq->id}}">{{$mustahiq->nama_mustahiq}}</option>
+                    @endforeach                    
+                </select>
                 
                 <label for="jenis_donasi">Jenis Donasi</label>
-                <select class="form-control" name="jenis_donasi">
-                    <option value="404">Zakat</option>
-                    <option value="404">Infaq</option>
-                    <option value="404">Waqaf</option>
-                </select>            
+                <select class="form-control" name="jenis_amalan">
+                    <option value="Zakat">Zakat</option>
+                    <option value="Waqaf">Waqaf</option>
+                    <option value="Infaq">Infaq</option>
+                    <option value="Sadaqah">Sadaqah</option>
+                </select>
                 <br>
 
                 <label for="keterangan">Keterangan</label>

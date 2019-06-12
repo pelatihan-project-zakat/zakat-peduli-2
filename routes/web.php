@@ -8,8 +8,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->group(function(){
     Route::get('/dashboard', function ()
     {
         return view('admin.index');

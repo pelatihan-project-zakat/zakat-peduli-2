@@ -14,7 +14,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Nama Program</th>
-                        <th>Jenis Donasi</th>
+                        <th>Mustahiq</th>
+                        <th>Jenis Amalan</th>
                         <th>Keterangan</th>
                         <th colspan="2">Action</th>
                     </tr>
@@ -23,8 +24,9 @@
                 @foreach ($programs as $program)
                     <tr>
                         <td>{{$program->id}}</td>
-                        <td>{{$program->program_name}}</td>
-                        <td>Blm nyambung tbl donasi</td>
+                        <td>{{$program->nama_program}}</td>
+                        <td>{{$program->mustahiq->nama_mustahiq}}</td>
+                        <td>{{$program->jenis_amalan}}</td>
                         <td>{{$program->keterangan}}</td>
                         <td>
                             <a class="btn btn-info" href="{{route('program.edit', $program)}}">Edit</a>
