@@ -31,15 +31,6 @@ Route::prefix('admin')->middleware('auth', 'role:Admin')->group(function () {
     Route::get('/transaction/success', function () {
         return view('admin.transaction.success');
     })->name('transaction.success');
-<<<<<<< HEAD
-    Route::get('/transaction/failed', function(){
-        return view('admin.transaction.failde');
-    })->name('transaction.failed');    
-=======
-    Route::get('/transaction/failed', function () {
-        return view('admin.transaction.success');
-    })->name('transaction.failed');
->>>>>>> 214bdfc295dd30f4b42869a8d5e83b0ceb4fdd14
 });
 
 Route::get('/user', 'Admin\UserController@index')->name('user.index');
