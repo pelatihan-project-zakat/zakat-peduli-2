@@ -22,6 +22,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/transaction/success', function(){
         return view('admin.transaction.success');
     })->name('transaction.success');
+    Route::get('/transaction/failed', function(){
+        return view('admin.transaction.success');
+    })->name('transaction.failed');
 
     Route::get('/user', 'Admin\UserController@index')->name('user.index');
 });

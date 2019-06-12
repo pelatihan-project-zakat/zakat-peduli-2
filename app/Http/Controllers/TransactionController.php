@@ -12,23 +12,15 @@ use App\Bank;
 
 class TransactionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $transactions = Transaction::all();
 
-        return view('users.validation',compact('transactions'));
+        return view('users.validation', [
+            'transactions' => $transactions,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
