@@ -45,7 +45,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Route::resource('/donasi', 'TransactionController');
+Route::resource('dashboard/transaction', 'TransactionController');
 
 Route::get('/validation', 'TransactionController@index');
 

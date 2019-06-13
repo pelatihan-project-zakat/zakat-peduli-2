@@ -11,31 +11,28 @@
                 <table class="table table-hover table-striped">
                     <thead> 
                         <tr>
-                            <th>ID</th>
-                            <th>PROGRAM DONASI</th>
-                            <th>ATAS NAMA</th>
-                            <th>NOMINAL</th>
-                            <th>KODE TRANSAKSI</th>
-                            <th>BUKTI TRANSFER</th>
-                            <th>STATUS</th>            
-                            <th>AKSI</th>
+                            <th>Program Donasi</th>
+                            <th>Atas Nama</th>
+                            <th>Nominal Donasi</th>
+                            <th>Metode Bayar</th>
+                            {{-- <th>Bukti Transfer</th> --}}
+                            <th>Upload Bukti Transfer</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($transactions as $transaction)
                         <tr>
-                            <td>{{$transaction->id}}</td>
-                            <td>{{$transaction->program_id}}</td>
+                            <td>{{$transaction->program->nama_program}}</td>
                             <td>{{$transaction->atas_nama}}</td>
-                            <td>{{$transaction->nominal}}</td>
-                            <td>{{$transaction->kode_transaksi}}</td>
-                            <td><img src="{{asset($transaction->image)}}" height="100px" alt=""></td>
-                            <td>{{$transaction->status}}</td>
-                            <td><a href="{{ route('transaction.edit',$transaction) }}" class="btn btn-warning">UPLOAD</a></td>
+                            <td>Rp {{$transaction->nominal}}</td>
+                            <td>{{$transaction->bank->nama_bank}}</td>
+                            {{-- <td><img src="{{asset($transaction->image)}}" height="100px" alt=""></td> --}}
+                            <td><a href="{{ route('transaction.edit',$transaction) }}" class="btn btn-warning">Upload</a></td>
                         </tr>   
                         @endforeach                    
                     </tbody>
                 </table>
+                {{$transactions->links()}}
             </div>
         </div>
     </div>

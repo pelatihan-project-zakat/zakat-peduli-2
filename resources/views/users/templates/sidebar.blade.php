@@ -3,9 +3,9 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="" class=""><i class="lnr lnr-code"></i> <span>Donasi</span></a></li>
-                <li><a href="" class=""><i class="lnr lnr-alarm"></i> <span>Data Pembayaran Donasi</span></a></li>
+                <li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{ route('transaction.index') }}" class=""><i class="lnr lnr-code"></i> <span>Upload Bukti Transfer</span></a></li>
+                <li><a href="{{ route('transaction.create') }}" class=""><i class="lnr lnr-alarm"></i> <span>Donasi Sekarang</span></a></li>
                 {{--                 
                 
                 <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>

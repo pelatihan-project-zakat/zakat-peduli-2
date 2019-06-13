@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -21,7 +21,7 @@ class Transaction extends Model
         return $this->belongsTo(Bank::class);
     }
 
-    public function programs()
+    public function program()
     {
         return $this->belongsTo(Program::class);
     }

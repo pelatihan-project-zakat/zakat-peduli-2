@@ -14,7 +14,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::all();
+        $transactions = Transaction::where('status', 1)->latest()->paginate(10);
 
         return view('users.validation', [
             'transactions' => $transactions,
@@ -23,7 +23,6 @@ class TransactionController extends Controller
 
     public function create()
     {
-
         $programs = Program::get();
 
         $banks = Bank::get();
@@ -36,15 +35,8 @@ class TransactionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
-    {
-        
+    {        
         $imagePath = $request->file('bukti_tf');
         
         $transaction = new Transaction;
@@ -58,52 +50,26 @@ class TransactionController extends Controller
         $transaction->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Transaction $transaction)
     {
-        
         return view('users.upload', [
             'transaction' => $transaction,
         ]);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Transaction $transaction)
     {
+        $imagePath = $request->file('image')->store('bukti_tf');
+        $transaction->bukti_tf = $imagePath;
+        $transaction->status = 2;
         
-        $transaction = Transaction::find($transaction);
-
-        if ($request->hasFile('bukti_tf')) {
-            $imagePath = $request->file('bukti_tf')->store('transaction');
-            Storage::delete($transaction->bukti_tf);
-            $transaction->bukti_tf = $imagePath;
-            $transaction->status=2;
-            
-        }
         $transaction->save();
+
         return redirect()->route('users.validation')->with('info','Berhasil Upload');
     }
 
