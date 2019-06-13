@@ -13,7 +13,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::prefix('admin')->middleware('auth', 'role:Admin')->group(function () {
+// ->middleware('auth', 'role:Admin')
+Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('admin.index');
@@ -31,6 +32,10 @@ Route::prefix('admin')->middleware('auth', 'role:Admin')->group(function () {
     Route::get('/transaction/success', function () {
         return view('admin.transaction.success');
     })->name('transaction.success');
+    Route::get('/transaction/failed', function () {
+        return view('admin.transaction.failed');
+    })->name('transaction.failed');
+
 });
 
 Route::get('/user', 'Admin\UserController@index')->name('user.index');
