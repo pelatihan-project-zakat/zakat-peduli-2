@@ -31,7 +31,7 @@
                         <td>{{$transaction->program_id}}</td>
                         <td>{{$transaction->bank_id}}</td>
                         <td>Rp {{$transaction->nominal}}</td>
-                        <td><img src="{{asset('assets/img/avatar/boy.png')}}" height="60px" alt=""></td>
+                        <td><img src="{{ asset($transaction->bukti_tf) }}" height="150px" alt=""></td>
                         <td>{{$transaction->tgl_bayar}}</td>
                         <td>
                             <form action="{{route('admin.transaction.sesuai', $transaction)}}" method="POST">

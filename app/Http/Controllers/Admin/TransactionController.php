@@ -49,5 +49,9 @@ class TransactionController extends Controller
         return redirect()->route('admin.transaction.index');
     }
 
+    public function showBuktiTf(Transaction $transaction)
+    {
+        
+    }
     
 }

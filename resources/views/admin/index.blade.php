@@ -1,5 +1,5 @@
 @extends('admin.templates.source')
 
 @section('content')
-    Bismillah Dashboard
+    <h1>Under Garapan</h1>
 @endsection
