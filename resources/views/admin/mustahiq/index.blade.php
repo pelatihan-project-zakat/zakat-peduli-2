@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body">
             <a href="{{route('mustahiq.create')}}" class="btn btn-success">Tambah Data Mustahiq</a>
-            <table class="table table-hover">
+            <table class="table table-hover table-striped datatable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -42,4 +42,7 @@
         </div>
     </div>
     <!-- END TABLE HOVER -->
+    <script>
+        $(".datatable").dataTable();
+    </script>
 @endsection

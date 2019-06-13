@@ -8,7 +8,7 @@
             <h3 class="panel-title">Data User Yayasan Al-Azhar Peduli</h3>            
         </div>
         <div class="panel-body">
-            <table class="table table-hover">
+                <table class="table table-hover table-striped datatable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -38,4 +38,7 @@
         </div>
     </div>
     <!-- END TABLE HOVER -->
+    <script>
+            $(".datatable").dataTable();
+    </script>
 @endsection
