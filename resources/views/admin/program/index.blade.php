@@ -37,7 +37,7 @@
                                 @csrf
                                 <input type="submit" class="btn btn-danger" value="Hapus">
                             </form>
-                        </td>                        
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

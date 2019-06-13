@@ -12,7 +12,7 @@
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Data Transaksi</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="subPages" class="collapse ">
                         <ul class="nav">
-                            <li><a href="{{ route('transaction.index') }}" class="">Transaksi Belum Diperiksa</a></li>
+                            <li><a href="{{ route('admin.transaction.index') }}" class="">Transaksi Belum Diperiksa</a></li>
                             <li><a href="{{ route('admin.transaction.success') }}" class="">Transaksi Sukses</a></li>
                             <li><a href="{{ route('admin.transaction.failed') }}" class="">Transaksi Ditolak</a></li>
                         </ul>

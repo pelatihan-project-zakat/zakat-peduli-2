@@ -28,11 +28,20 @@ Route::prefix('admin')->group(function () {
     Route::get('/user', 'Admin\UserController@index')
     ->name('admin.user.index');
 
-    Route::resource('transaction', 'Admin\TransactionController');
-    Route::get('/transaction-view/success', 'Admin\TransactionViewOnlyController@success')
+    // View transaksi
+    Route::get('/transaction', 'Admin\TransactionController@index')
+    ->name('admin.transaction.index');;
+    Route::get('/transaction/success', 'Admin\TransactionController@success')
     ->name('admin.transaction.success');
-    Route::get('/transaction-view/failed', 'Admin\TransactionViewOnlyController@failed')
+    Route::get('/transaction/failed', 'Admin\TransactionController@failed')
     ->name('admin.transaction.failed');
+
+    // Update status transaksi
+    Route::put('/transaction/sesuai/{transaction}' ,'Admin\TransactionController@sesuai')
+    ->name('admin.transaction.sesuai');
+    // Update status transaksi
+    Route::put('/transaction/ditolak/{transaction}' ,'Admin\TransactionController@ditolak')
+    ->name('admin.transaction.ditolak');
 
 });
 

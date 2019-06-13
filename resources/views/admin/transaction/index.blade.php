@@ -19,7 +19,7 @@
                         <th>Nominal Donasi</th>
                         <th>Bukti Transfer</th>
                         <th>Tanggal Bayar</th>
-                        <th>Action</th>
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,15 +34,18 @@
                         <td><img src="{{asset('assets/img/avatar/boy.png')}}" height="60px" alt=""></td>
                         <td>{{$transaction->tgl_bayar}}</td>
                         <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Action <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Sesuai</a></li>
-                                  <li><a href="#">Tidak sesuai</a></li>
-                                </ul>
-                            </div>
+                            <form action="{{route('admin.transaction.sesuai', $transaction)}}" method="POST">
+                                @method("PUT")
+                                @csrf
+                                <input type="submit" class="btn btn-success" value="Sesuai">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{{route('admin.transaction.ditolak', $transaction)}}" method="POST">
+                                @method("PUT")
+                                @csrf
+                                <input type="submit" class="btn btn-danger" value="Ditolak">
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -53,3 +56,14 @@
     </div>
     <!-- END TABLE HOVER -->
 @endsection
+
+
+{{-- <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="{{route('admin.transaction.sesuai')}}">Sesuai</a></li>
+          <li><a href="#">Tidak sesuai</a></li>
+        </ul>
+    </div> --}}
