@@ -25,16 +25,14 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('bank', 'Admin\BankController');
 
-    Route::get('/user', 'Admin\UserController@index')->name('user.index');
+    Route::get('/user', 'Admin\UserController@index')
+    ->name('admin.user.index');
 
     Route::resource('transaction', 'Admin\TransactionController');
-
-    Route::get('/transaction/success', function () {
-        return view('admin.transaction.success');
-    })->name('transaction.success');
-    Route::get('/transaction/failed', function () {
-        return view('admin.transaction.failed');
-    })->name('transaction.failed');
+    Route::get('/transaction-view/success', 'Admin\TransactionViewOnlyController@success')
+    ->name('admin.transaction.success');
+    Route::get('/transaction-view/failed', 'Admin\TransactionViewOnlyController@failed')
+    ->name('admin.transaction.failed');
 
 });
 

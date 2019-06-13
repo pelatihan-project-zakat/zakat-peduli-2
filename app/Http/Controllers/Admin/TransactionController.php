@@ -12,20 +12,15 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = DB::table('transactions')->where('status', '=', 1)->latest()->paginate(10);
+        $transactions = DB::table('transactions')->where('status', '=', 2)->latest()->paginate(10);
 
         return view('admin.transaction.index', [
             'transactions'=>$transactions]);
     }
 
-    public function success()
-    {
-        return view('admin.transaction.success');
-    }
-
     public function create()
     {
-        //
+
     }
 
     public function store(Request $request)

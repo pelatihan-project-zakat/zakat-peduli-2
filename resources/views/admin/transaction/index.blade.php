@@ -5,30 +5,34 @@
     <!-- TABLE HOVER -->
     <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">Data Transaksi Donasi Yayasan Al-Azhar Peduli</h3>    
+            <h3 class="panel-title">Data Donasi yang Belum Diperiksa</h3>    
         </div>
         <div class="panel-body">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Kode Transaksi</th>
-                        <th>Tanggal</th>
-                        <th>Email Donatur</th>
-                        <th>Jenis Program</th>
-                        <th>Nomnial Transaksi</th>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Atas Nama</th>
+                        <th>Program</th>
+                        <th>Metode Bayar</th>
+                        <th>Nominal Donasi</th>
                         <th>Bukti Transfer</th>
+                        <th>Tanggal Bayar</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach ($transactions as $transaction)
                     <tr>
-                        <td>{{$transaction->kode_transaksi}}</td>
-                        <td>{{$transaction->tanggal}}</td>
-                        <td>{{$transaction->email}}</td>
-                        <td>{{$transaction->program}}</td>                        
-                        <td>Rp {{$transaction->jumlah_donasi}}</td>
+                        <td>{{$transaction->id}}</td>
+                        <td>{{$transaction->user_id}}</td>
+                        <td>{{$transaction->atas_nama}}</td>
+                        <td>{{$transaction->program_id}}</td>
+                        <td>{{$transaction->bank_id}}</td>
+                        <td>Rp {{$transaction->nominal}}</td>
                         <td><img src="{{asset('assets/img/avatar/boy.png')}}" height="60px" alt=""></td>
+                        <td>{{$transaction->tgl_bayar}}</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
