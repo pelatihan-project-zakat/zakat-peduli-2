@@ -7,13 +7,13 @@ use Faker\Generator as Faker;
 
 $factory->define(Transaction::class, function (Faker $faker) {
     return [
-        'kode_transaksi' =>$faker->unique()->numerify('### #### ###'),
-        'user_id' => $faker->unique()->numerify('##'),
-        'tanggal' =>$faker->dateTimeThisMonth($max = 'now', $timezone = null),
-        'email' =>$faker->unique()->freeEmail,
-        'program' => 'blm nyambung tbl',
-        'jumlah_donasi' =>$faker->numberBetween($min = 500000, $max = 5000000),
-        'status'=>$faker->numberBetween($min = 0, $max = 1),
+        'user_id' => $faker->numberBetween($min = 6, $max = 11),
+        'program_id' => $faker->numberBetween($min = 1, $max = 2),
+        'bank_id' => 1,
+        'atas_nama' => $faker->name,
+        'nominal' => $faker->numberBetween($min = 100000, $max = 2000000),
+        'tgl_bayar' =>$faker->dateTimeThisMonth($max = 'now', $timezone = null),        
+        'status'=>$faker->numberBetween($min = 1, $max = 4),
     ];
 
     // Belum selesai
