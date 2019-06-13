@@ -11,16 +11,16 @@
                 @method('PUT')
                 @csrf
                 <label for="name">Nama Bank</label>
-                <input type="text" class="form-control" placeholder="Nama Bank" name="nama_bank" value="{{$bank->nama_bank}}">
+                <input type="text" class="form-control" placeholder="Nama Bank" name="nama_bank" value="{{$bank->nama_bank}}" required="required">
                 <br>
 
                 <label for="address">No. Rekening Donasi</label>
-                <input type="text" class="form-control" placeholder="No. Rek" name="no_rek" value="{{$bank->no_rek}}">
+                <input type="text" class="form-control" placeholder="No. Rek" name="no_rek" value="{{$bank->no_rek}}" required="required">
                 <br>
 
                 <div class="form-group">
                     <label for="image" class="label">Logo Bank</label> <br>
-                    <input type="file" class="form-controll" name="image">
+                    <input type="file" class="form-controll" name="image" required="required">
                     <br>
                     {{-- Tampilan masih hambret --}}
                 </div>

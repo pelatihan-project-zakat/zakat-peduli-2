@@ -21,6 +21,44 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicon.png') }}">
+
+	<!--DATA TABLE-->
+
+
+	 <!-- JQuery DataTable Css -->
+	 <link href="{{ asset('assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+	 <!-- Bootstrap Core Css -->
+    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+
+   <!-- Waves Effect Css -->
+   <link href="{{ asset('assets/plugins/node-waves/waves.css') }}" rel="stylesheet" />
+
+   <!-- Animation Css -->
+   <link href="<{{ asset('assets/plugins/animate-css/animate.css') }}" rel="stylesheet" />
+
+   <!-- Morris Chart Css-->
+   <link href="{{ asset('assets/plugins/morrisjs/morris.css') }}" rel="stylesheet" />
+
+	<!-- Custom Css -->
+   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+<!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+   <link href="{{ asset('assets/css/themes/all-themes.css') }}" rel="stylesheet" />
+   <link href="{{ asset('assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+   <!-- Jquery Core Js -->
+   <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+		   <!-- Jquery DataTable Plugin Js -->
+   <script src="{{ asset('assets/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+   <script src="{{ asset('assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
 </head>
 
 <body>
@@ -53,6 +91,9 @@
 	<script src="{{ asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
 	<script src="{{ asset('assets/vendor/chartist/js/chartist.min.js') }}"></script>
 	<script src="{{ asset('assets/scripts/klorofil-common.js') }}"></script>
+
+	
+	
 
 </body>
 

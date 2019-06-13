@@ -12,7 +12,7 @@
                 @csrf
 
                 <label for="nama_program">Nama Program</label>
-                <input type="text" class="form-control" placeholder="Nama Program" name="nama_program" value="{{$program->nama_program}}">
+                <input type="text" class="form-control" placeholder="Nama Program" name="nama_program" value="{{$program->nama_program}}" required="required">
                 <br>
 
                 <label for="jenis_donasi">Penerima Donasi (Mustahiq)</label>
@@ -32,7 +32,7 @@
                 <br>
 
                 <label for="keterangan">Keterangan</label>
-                <textarea class="form-control" placeholder="Keterangan" rows="4" name="keterangan">{{$program->keterangan}}</textarea>
+                <textarea class="form-control" placeholder="Keterangan" rows="4" name="keterangan" required="required">{{$program->keterangan}}</textarea>
                 <br>
 
                 <button type="submit" class="btn btn-info">Edit Program</button>
