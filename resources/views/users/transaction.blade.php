@@ -38,7 +38,7 @@
                     <div class="panel-body">
                         <label>                            
                             @foreach ($banks as $bank)
-                                <input type="radio" class="" name="bank" value="{{ $bank->id }}">
+                                <input type="radio" class="" name="bank" value="{{ $bank->id }}" required="required">
                                 <img src="{{asset( $bank->logo) }}" height="70px">            
                             @endforeach
                         </label>                       
