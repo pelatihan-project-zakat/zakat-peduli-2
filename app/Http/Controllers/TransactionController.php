@@ -42,13 +42,16 @@ class TransactionController extends Controller
         
         $transaction = new Transaction;
         
-        $transaction->user_id = auth()->id();    
+        $transaction->user_id = 5;    
         $transaction->program_id = $request->program;     
         $transaction->bank_id = $request->bank;
         $transaction->atas_nama = $request->atas_nama;
         $transaction->nominal = $request->nominal;      
+        $transaction->tgl_bayar = Carbon::now();;
         $transaction->bukti_tf = $imagePath;
         $transaction->save();
+
+        return redirect()->route('transaction.index');
     }
 
     public function show($id)
