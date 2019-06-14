@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 use App\Transaction;
 use App\Program;
 use App\Bank;
@@ -64,13 +65,24 @@ class TransactionController extends Controller
 
     public function update(Request $request, Transaction $transaction)
     {
-        $imagePath = $request->file('image')->store('bukti_tf');
-        $transaction->bukti_tf = $imagePath;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('bukti_tf');
+            // Untuk Menghapus gambar lama
+            Storage::delete($transaction->bukti_tf);
+            $transaction->bukti_tf = $imagePath;
+        }
+
+        $transaction->user_id = $request->user_id;
+        $transaction->program_id = $request->program_id;
+        $transaction->bank_id = $request->bank_id;
+        $transaction->atas_nama = $request->atas_nama;
+        $transaction->nominal = $request->nominal;
+        $transaction->tgl_bayar = Carbon::now();;
         $transaction->status = 2;
-        
+
         $transaction->save();
 
-        return redirect()->route('users.validation')->with('info','Berhasil Upload');
+        return redirect()->route('transaction.index');
     }
 
     public function destroy($id)

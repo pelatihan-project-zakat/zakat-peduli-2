@@ -47,7 +47,3 @@ Route::prefix('admin')->group(function () {
 
 Route::resource('dashboard/transaction', 'TransactionController');
 
-Route::get('/validation', 'TransactionController@index');
-
-Route::put('/upload', 'TransactionController@update')->name('transaction.update');
-
